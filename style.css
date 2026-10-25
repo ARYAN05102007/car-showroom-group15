@@ -1,0 +1,418 @@
+/* =========================================================
+   Driveway Motors - style.css
+   Order: 1 Variables, 2 Base, 3 Header, 4 Hero, 5 Sections,
+          6 Car cards, 7 Comparison, 8 Floating bar,
+          9 Footer, 10 Mobile
+   ========================================================= */
+ 
+/* ===== 1. VARIABLES (change colors here, they update everywhere) ===== */
+:root {
+  --bg: #0f1420;          /* page background */
+  --surface: #171e30;     /* cards */
+  --surface-2: #1f2840;   /* hover / alternate rows */
+  --line: #2b3656;        /* borders */
+  --text: #eaeef8;        /* main text */
+  --muted: #94a0bd;       /* secondary text */
+  --accent: #ffb020;      /* amber, used for price and highlights */
+  --accent-ink: #1a1200;  /* dark text on amber buttons */
+  --warn: #ff7a59;        /* warning message */
+}
+ 
+/* ===== 2. BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+html {
+  scroll-behavior: smooth;
+}
+ 
+body {
+  font-family: "Barlow", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+ 
+h1, h2, h3 {
+  font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+ 
+img {
+  display: block;
+  max-width: 100%;
+}
+ 
+a {
+  color: inherit;
+}
+ 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+ 
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+ 
+.btn:hover {
+  filter: brightness(1.1);
+}
+ 
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+}
+ 
+/* ===== 3. HEADER ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(15, 20, 32, 0.95);
+  border-bottom: 1px solid var(--line);
+}
+ 
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ 
+.logo {
+  font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+ 
+.site-header nav a {
+  margin-left: 24px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+ 
+.site-header nav a:hover {
+  color: var(--text);
+}
+ 
+/* ===== 4. HERO ===== */
+.hero {
+  position: relative;
+  background: var(--surface);
+  padding: 88px 24px 100px;
+}
+ 
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ 
+.hero h1 {
+  max-width: 14em;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 700;
+}
+ 
+.hero p {
+  max-width: 52ch;
+  margin: 20px 0 32px;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+ 
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+ 
+/* Dashed amber line at the bottom of the hero, like a road marking */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 48px, transparent 48px 96px);
+}
+ 
+/* ===== 5. SECTIONS ===== */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px 24px;
+  scroll-margin-top: 70px; /* keeps the heading visible below the sticky header */
+}
+ 
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+ 
+.section-sub {
+  margin: 8px 0 32px;
+  color: var(--muted);
+}
+ 
+/* ===== 6. CAR CARDS ===== */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 24px;
+}
+ 
+.car-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+ 
+.car-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--muted);
+}
+ 
+/* Card that is ticked for comparison */
+.car-card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+ 
+.car-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;       /* crops the photo so all cards look equal */
+  background: var(--surface-2); /* shows if the image is missing */
+}
+ 
+.card-body {
+  padding: 18px 20px 12px;
+}
+ 
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+ 
+.card-head h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+ 
+.tag {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+ 
+/* Specs table inside each card */
+.specs {
+  width: 100%;
+  border-collapse: collapse;
+}
+ 
+.specs th,
+.specs td {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+ 
+.specs th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 500;
+}
+ 
+.specs td {
+  text-align: right;
+}
+ 
+.specs .price td {
+  color: var(--accent);
+  font-weight: 600;
+}
+ 
+/* Compare checkbox */
+.compare-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+ 
+.compare-label input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+ 
+/* ===== 7. COMPARISON SECTION (the highlighted part) ===== */
+.comparison-box {
+  padding: 28px;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  box-shadow: 0 0 0 6px rgba(255, 176, 32, 0.1);
+}
+ 
+.comparison-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+ 
+.compare-message {
+  margin-top: 8px;
+  color: var(--muted);
+}
+ 
+.compare-message.warning {
+  color: var(--warn);
+  font-weight: 600;
+}
+ 
+/* The table that JavaScript builds */
+#compare-table {
+  margin-top: 20px;
+  overflow-x: auto; /* table scrolls sideways on small screens */
+}
+ 
+#compare-table table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+}
+ 
+#compare-table th,
+#compare-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+ 
+#compare-table thead th {
+  font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+ 
+#compare-table tbody th {
+  color: var(--muted);
+  font-weight: 500;
+}
+ 
+#compare-table tbody tr:nth-child(even) {
+  background: var(--surface-2);
+}
+ 
+/* ===== 8. FLOATING COMPARE BAR ===== */
+.compare-bar {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 8px 8px 22px;
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  font-weight: 600;
+  white-space: nowrap;
+}
+ 
+.compare-bar .btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+ 
+.hidden {
+  display: none;
+}
+ 
+/* ===== 9. FOOTER ===== */
+.site-footer {
+  margin-top: 64px;
+  padding: 28px 24px 90px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+ 
+/* ===== 10. MOBILE ===== */
+@media (max-width: 600px) {
+  .header-inner {
+    padding: 12px 16px;
+  }
+ 
+  .site-header nav a {
+    margin-left: 14px;
+  }
+ 
+  .hero {
+    padding: 56px 20px 64px;
+  }
+ 
+  .section {
+    padding: 48px 16px 16px;
+  }
+ 
+  .comparison-box {
+    padding: 18px;
+  }
+}
+ 
+/* Respect people who turn off animations in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+ 
+  .car-card {
+    transition: none;
+  }
+ 
+  .car-card:hover {
+    transform: none;
+  }
+}
