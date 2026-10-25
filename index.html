@@ -3,15 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Car Showroom</title>
+  <title>Driveway Motors | Car Showroom</title>
+ 
+  <!-- Fonts (optional). If there is no internet, the page still works with fallback fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+ 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Car Showroom</h1></header>
-  <main>
-    <section id="cars"></section>
-    <section id="comparison"></section>
+ 
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo">Driveway Motors</a>
+      <nav>
+        <a href="#cars">Cars</a>
+        <a href="#comparison">Compare</a>
+      </nav>
+    </div>
+  </header>
+ 
+  <main id="top">
+ 
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Find the car that fits. Put three side by side.</h1>
+        <p>Browse six popular models, tick Compare on up to three, and see price, engine and mileage in one table.</p>
+        <div class="hero-buttons">
+          <a href="#cars" class="btn">Browse cars</a>
+          <a href="#comparison" class="btn btn-outline">Go to comparison</a>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- ===== CAR CARDS ===== -->
+    <section id="cars" class="section">
+      <h2 class="section-title">Cars in our showroom</h2>
+      <p class="section-sub">Tick Compare on 2 or 3 cars to see them side by side.</p>
+ 
+      <div class="car-grid">
+ 
+        <!-- Car 0 -->
+        <article class="car-card">
+          <img src="images/car1.jpg" alt="Maruti Suzuki Swift">
+          <div class="card-body">
+            <div class="card-head">
+              <h3>Maruti Suzuki Swift</h3>
+              <span class="tag">Hatchback</span>
+            </div>
+            <table class="specs">
+              <tr class="price"><th>Price</th><td>₹ 6.5 Lakh onwards</td></tr>
+              <tr><th>Engine</th><td>1197 cc</td></tr>
+              <tr><th>Mileage</th><td>24.8 km/l</td></tr>
+              <tr><th>Seats</th><td>5</td></tr>
+              <tr><th>Fuel</th><td>Petrol</td></tr>
+            </table>
+            <label class="compare-label">
+              <input type="checkbox" class="compare-box" value="0">
+              Compare
+            </label>
+          </div>
+        </article>
+ 
+        <!-- Car 1 -->
+        <article class="car-card">
+          <img src="images/car2.jpg" alt="Tata Nexon">
+          <div class="card-body">
+            <div class="card-head">
+              <h3>Tata Nexon</h3>
+              <span class="tag">Compact SUV</span>
+            </div>
+            <table class="specs">
+              <tr class="price"><th>Price</th><td>₹ 7.3 Lakh onwards</td></tr>
+              <tr><th>Engine</th><td>1199 cc</td></tr>
+              <tr><th>Mileage</th><td>17.4 km/l</td></tr>
+              <tr><th>Seats</th><td>5</td></tr>
+              <tr><th>Fuel</th><td>Petrol / Diesel / CNG</td></tr>
+            </table>
+            <label class="compare-label">
+              <input type="checkbox" class="compare-box" value="1">
+              Compare
+            </label>
+          </div>
+        </article>
+ 
+        <!-- Car 2 -->
+        <article class="car-card">
+          <img src="images/car3.jpg" alt="Hyundai Creta">
+          <div class="card-body">
+            <div class="card-head">
+              <h3>Hyundai Creta</h3>
+              <span class="tag">Mid-size SUV</span>
+            </div>
+            <table class="specs">
+              <tr class="price"><th>Price</th><td>₹ 10.7 Lakh onwards</td></tr>
+              <tr><th>Engine</th><td>1497 cc</td></tr>
+              <tr><th>Mileage</th><td>17 km/l</td></tr>
+              <tr><th>Seats</th><td>5</td></tr>
+              <tr><th>Fuel</th><td>Petrol / Diesel</td></tr>
+            </table>
+            <label class="compare-label">
+              <input type="checkbox" class="compare-box" value="2">
+              Compare
+            </label>
+          </div>
+        </article>
+ 
+        <!-- Car 3 -->
+        <article class="car-card">
+          <img src="images/car4.jpg" alt="Mahindra Thar">
+          <div class="card-body">
+            <div class="card-head">
+              <h3>Mahindra Thar</h3>
+              <span class="tag">Off-road SUV</span>
+            </div>
+            <table class="specs">
+              <tr class="price"><th>Price</th><td>₹ 10 Lakh onwards</td></tr>
+              <tr><th>Engine</th><td>1997 cc</td></tr>
+              <tr><th>Mileage</th><td>15 km/l</td></tr>
+              <tr><th>Seats</th><td>4</td></tr>
+              <tr><th>Fuel</th><td>Petrol / Diesel</td></tr>
+            </table>
+            <label class="compare-label">
+              <input type="checkbox" class="compare-box" value="3">
+              Compare
+            </label>
+          </div>
+        </article>
+ 
+        <!-- Car 4 -->
+        <article class="car-card">
+          <img src="images/car5.jpg" alt="Honda City">
+          <div class="card-body">
+            <div class="card-head">
+              <h3>Honda City</h3>
+              <span class="tag">Sedan</span>
+            </div>
+            <table class="specs">
+              <tr class="price"><th>Price</th><td>₹ 11 Lakh onwards</td></tr>
+              <tr><th>Engine</th><td>1498 cc</td></tr>
+              <tr><th>Mileage</th><td>17.8 km/l</td></tr>
+              <tr><th>Seats</th><td>5</td></tr>
+              <tr><th>Fuel</th><td>Petrol / Hybrid</td></tr>
+            </table>
+            <label class="compare-label">
+              <input type="checkbox" class="compare-box" value="4">
+              Compare
+            </label>
+          </div>
+        </article>
+ 
+        <!-- Car 5 -->
+        <article class="car-card">
+          <img src="images/car6.jpg" alt="Toyota Innova Crysta">
+          <div class="card-body">
+            <div class="card-head">
+              <h3>Toyota Innova Crysta</h3>
+              <span class="tag">MPV</span>
+            </div>
+            <table class="specs">
+              <tr class="price"><th>Price</th><td>₹ 18 Lakh onwards</td></tr>
+              <tr><th>Engine</th><td>2393 cc</td></tr>
+              <tr><th>Mileage</th><td>15 km/l</td></tr>
+              <tr><th>Seats</th><td>7</td></tr>
+              <tr><th>Fuel</th><td>Diesel</td></tr>
+            </table>
+            <label class="compare-label">
+              <input type="checkbox" class="compare-box" value="5">
+              Compare
+            </label>
+          </div>
+        </article>
+ 
+      </div>
+    </section>
+ 
+    <!-- ===== COMPARISON SECTION (JavaScript fills the table) ===== -->
+    <section id="comparison" class="section">
+      <div class="comparison-box">
+        <div class="comparison-head">
+          <div>
+            <h2 class="section-title">Compare cars</h2>
+            <p id="compare-message" class="compare-message">Select 2 or 3 cars above to compare them here.</p>
+          </div>
+          <button id="clear-btn" class="btn btn-outline" type="button">Clear all</button>
+        </div>
+        <div id="compare-table"></div>
+      </div>
+    </section>
+ 
   </main>
+ 
+  <!-- Floating bar: shows how many cars are selected -->
+  <div id="compare-bar" class="compare-bar hidden">
+    <span id="compare-bar-text"></span>
+    <a href="#comparison" class="btn">View comparison</a>
+  </div>
+ 
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <p>Driveway Motors is a Semester 1 Web Development Project by Group 15: Aman Babu, Ashish Gupta and Aryan.</p>
+    <p>Prices and specifications are approximate and for demonstration only.</p>
+  </footer>
+ 
   <script src="script.js"></script>
 </body>
 </html>
+ 
