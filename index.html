@@ -2,16 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Car Showroom</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Car Showroom</h1></header>
+
+  <header class="top">
+    <h1>Car Showroom</h1>
+    <p>Pick any 2 or 3 cars with the Compare box and see them side by side below.</p>
+    <a href="#compareSection" class="jump">Go to comparison</a>
+  </header>
+
   <main>
-    <section id="cars"></section>
-    <section id="comparison"></section>
+    <!-- the car cards are added here by script.js -->
+    <section id="carGrid" class="grid"></section>
+
+    <section id="compareSection" class="compare">
+      <h2>Compare cars</h2>
+      <p id="message">Select at least 2 cars to compare.</p>
+      <div id="tableBox"></div>
+      <button id="clearBtn" type="button">Clear selection</button>
+    </section>
   </main>
+
+  <footer>
+    <p>Group 15 | Project 43 | Specs are approximate and for practice only.</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
