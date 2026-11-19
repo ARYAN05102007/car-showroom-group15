@@ -139,3 +139,39 @@ h1, h2, h3 {
   background: repeating-linear-gradient(90deg, var(--line) 0 28px, transparent 28px 48px);
   border-radius: 4px;
 }
+
+/* ---------- About ---------- */
+.about {
+  display: flex;
+  gap: 40px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 56px 20px 8px;
+}
+.about-text { flex: 1; }
+.about h2, .section-head h2 {
+  margin: 0 0 12px;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.about-text p { margin: 0 0 12px; color: var(--muted); }
+
+.about-steps { flex: 1; display: grid; gap: 14px; }
+.step {
+  padding: 16px 20px;
+  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--violet);
+  border-radius: 12px;
+}
+.step h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.step p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+.section-head { margin-bottom: 28px; }
+.section-head p { margin: 0; color: var(--muted); }
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 56px 20px 64px;
+}
