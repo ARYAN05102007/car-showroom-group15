@@ -265,3 +265,55 @@ main {
   background: rgba(167, 139, 250, 0.15);
   border-color: var(--violet);
 }
+
+/* ---------- Comparison section ---------- */
+.compare {
+  margin-top: 56px;
+  padding: 32px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(94, 234, 212, 0.12), transparent 50%),
+    linear-gradient(180deg, var(--compare-top), var(--compare-bottom));
+  border: 1px solid rgba(94, 234, 212, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(94, 234, 212, 0.14);
+}
+.compare h2 {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--mint);
+}
+
+#message { margin: 0 0 20px; color: var(--muted); }
+#message.warning { color: #ffb86b; font-weight: 600; }
+
+.table-wrap { overflow-x: auto; }
+#compareTable { width: 100%; border-collapse: collapse; }
+#compareTable th,
+#compareTable td {
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(42, 49, 80, 0.8);
+}
+#compareTable th {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  background: rgba(8, 9, 14, 0.35);
+}
+#compareTable tbody tr:nth-child(even) { background: rgba(255, 255, 255, 0.025); }
+#compareTable td:first-child { color: var(--muted); }
+
+#clearBtn {
+  margin-top: 22px;
+  padding: 11px 24px;
+  background: transparent;
+  color: var(--mint);
+  border: 1px solid var(--mint);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+#clearBtn:hover { background: var(--mint); color: var(--page); }
