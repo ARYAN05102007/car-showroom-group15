@@ -83,3 +83,59 @@ h1, h2, h3 {
   border-radius: 999px;
   transition: background 0.25s, color 0.25s;
 }
+.nav-links a:hover { background: rgba(167, 139, 250, 0.15); color: var(--text); }
+
+/* ---------- Intro (hero) ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 20px 32px;
+}
+.hero-text { flex: 1; }
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+.hero p {
+  max-width: 480px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-img { flex: 1; width: 100%; max-width: 480px; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.25s, color 0.25s;
+}
+.btn-main {
+  color: #0d1019;
+  background: linear-gradient(135deg, #b7a2ff, #8a6cf0);
+}
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(167, 139, 250, 0.4); }
+.btn-outline {
+  color: var(--mint);
+  border: 1px solid rgba(94, 234, 212, 0.5);
+}
+.btn-outline:hover { background: var(--mint); color: var(--page); }
+
+/* dashed road line: a small car-themed divider */
+.road {
+  max-width: 1080px;
+  height: 4px;
+  margin: 0 auto;
+  background: repeating-linear-gradient(90deg, var(--line) 0 28px, transparent 28px 48px);
+  border-radius: 4px;
+}
