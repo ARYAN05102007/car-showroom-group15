@@ -1,151 +1,51 @@
-// Car data: every car is an object, and all cars are stored in one array
-const cars = [
-  { id: 1, name: "Maruti Suzuki Swift", image: "images/swift.svg", price: "Rs 6.5 lakh", engine: "1197 cc petrol", power: "80 bhp", mileage: "24 kmpl", seats: 5, gearbox: "Manual / AMT" },
-  { id: 2, name: "Hyundai Creta", image: "images/creta.svg", price: "Rs 11 lakh", engine: "1497 cc petrol", power: "113 bhp", mileage: "17 kmpl", seats: 5, gearbox: "Manual / CVT" },
-  { id: 3, name: "Tata Nexon", image: "images/nexon.svg", price: "Rs 8 lakh", engine: "1199 cc turbo petrol", power: "118 bhp", mileage: "17 kmpl", seats: 5, gearbox: "Manual / AMT" },
-  { id: 4, name: "Mahindra Thar", image: "images/thar.svg", price: "Rs 11.5 lakh", engine: "1997 cc petrol", power: "150 bhp", mileage: "15 kmpl", seats: 4, gearbox: "Manual / Auto" },
-  { id: 5, name: "Honda City", image: "images/city.svg", price: "Rs 12 lakh", engine: "1498 cc petrol", power: "119 bhp", mileage: "18 kmpl", seats: 5, gearbox: "Manual / CVT" },
-  { id: 6, name: "Toyota Fortuner", image: "images/fortuner.svg", price: "Rs 33 lakh", engine: "2755 cc diesel", power: "201 bhp", mileage: "14 kmpl", seats: 7, gearbox: "Manual / Auto" }
+// Car data. Each inner array is one car, in the same order as the cards in index.html:
+// [name, price, engine, power, mileage, seats, gearbox]
+var cars = [
+  ["Maruti Suzuki Swift", "Rs 6.5 lakh", "1197 cc petrol", "80 bhp", "24 kmpl", "5", "Manual / AMT"],
+  ["Hyundai Creta", "Rs 11 lakh", "1497 cc petrol", "113 bhp", "17 kmpl", "5", "Manual / CVT"],
+  ["Tata Nexon", "Rs 8 lakh", "1199 cc turbo petrol", "118 bhp", "17 kmpl", "5", "Manual / AMT"],
+  ["Mahindra Thar", "Rs 11.5 lakh", "1997 cc petrol", "150 bhp", "15 kmpl", "4", "Manual / Auto"],
+  ["Honda City", "Rs 12 lakh", "1498 cc petrol", "119 bhp", "18 kmpl", "5", "Manual / CVT"],
+  ["Toyota Fortuner", "Rs 33 lakh", "2755 cc diesel", "201 bhp", "14 kmpl", "7", "Manual / Auto"]
 ];
 
-// the rows of the specs table: [key in the car object, label to show]
-const specs = [
-  ["price", "Price (ex-showroom)"],
-  ["engine", "Engine"],
-  ["power", "Power"],
-  ["mileage", "Mileage"],
-  ["seats", "Seats"],
-  ["gearbox", "Gearbox"]
-];
+// This array remembers which cars are ticked (we store their numbers 0 to 5)
+var selected = [];
 
-const MAX_CARS = 3;      // we can compare at most 3 cars
-let selectedIds = [];    // ids of the cars that are ticked right now
-
-const carGrid = document.getElementById("carGrid");
-const message = document.getElementById("message");
-const tableBox = document.getElementById("tableBox");
-const clearBtn = document.getElementById("clearBtn");
+// Get the elements we need from the page
+var boxes = document.querySelectorAll(".compare-box");
+var message = document.getElementById("message");
+var table = document.getElementById("compareTable");
+var clearBtn = document.getElementById("clearBtn");
 
 
-// 1. Build all the car cards
-function showCars() {
-  let html = "";
-
-  for (let i = 0; i < cars.length; i++) {
-    const car = cars[i];
-
-    html += '<article class="card" id="card' + car.id + '">';
-    html += '  <img src="' + car.image + '" alt="' + car.name + '">';
-    html += '  <div class="card-body">';
-    html += '    <h3>' + car.name + '</h3>';
-    html += '    <table>';
-    for (let j = 0; j < specs.length; j++) {
-      html += '<tr><td>' + specs[j][1] + '</td><td>' + car[specs[j][0]] + '</td></tr>';
-    }
-    html += '    </table>';
-    html += '    <label class="compare-label">';
-    html += '      <input type="checkbox" class="compare-box" value="' + car.id + '"> Compare';
-    html += '    </label>';
-    html += '  </div>';
-    html += '</article>';
-  }
-
-  carGrid.innerHTML = html;
-
-  // add a click listener to every checkbox
-  const boxes = document.querySelectorAll(".compare-box");
-  for (let i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener("change", onCheckboxChange);
-  }
-}
-
-
-// 2. Find a car in the array using its id
-function findCar(id) {
-  for (let i = 0; i < cars.length; i++) {
-    if (cars[i].id === id) {
-      return cars[i];
-    }
-  }
-  return null;
-}
-
-
-// 3. Runs every time a checkbox is ticked or unticked
-function onCheckboxChange(event) {
-  const box = event.target;
-  const id = Number(box.value);
+// Runs every time any checkbox is ticked or unticked
+function handleChange(event) {
+  var box = event.target;               // the checkbox that was clicked
+  var index = Number(box.value);        // its car number (0 to 5)
+  var card = document.getElementById("card" + index);
 
   if (box.checked) {
-    // already 3 cars selected? then don't allow another one
-    if (selectedIds.length >= MAX_CARS) {
+    // Already 3 cars selected? Then do not allow a 4th one
+    if (selected.length >= 3) {
       box.checked = false;
-      showMessage("You can compare only " + MAX_CARS + " cars. Untick one first.", true);
+      message.textContent = "You can compare only 3 cars. Untick one first.";
+      message.className = "warning";
       return;
     }
-    selectedIds.push(id);
+    selected.push(index);               // add this car to the list
+    card.classList.add("selected");     // highlight the card
   } else {
-    // remove this id from the array
-    selectedIds = selectedIds.filter(function (x) {
-      return x !== id;
-    });
-  }
-
-  document.getElementById("card" + id).classList.toggle("picked", box.checked);
-  buildTable();
-}
-
-
-// 4. Build the comparison table from the selected cars
-function buildTable() {
-  if (selectedIds.length < 2) {
-    tableBox.innerHTML = "";
-    showMessage("Select at least 2 cars to compare.", false);
-    return;
-  }
-
-  showMessage("Comparing " + selectedIds.length + " cars.", false);
-
-  // header row: empty first cell, then one column per car
-  let html = "<table><thead><tr><th>Specification</th>";
-  for (let i = 0; i < selectedIds.length; i++) {
-    html += "<th>" + findCar(selectedIds[i]).name + "</th>";
-  }
-  html += "</tr></thead><tbody>";
-
-  // one row for each spec
-  for (let i = 0; i < specs.length; i++) {
-    html += "<tr><td>" + specs[i][1] + "</td>";
-    for (let j = 0; j < selectedIds.length; j++) {
-      html += "<td>" + findCar(selectedIds[j])[specs[i][0]] + "</td>";
+    // Unticked: build a new list without this car
+    var newList = [];
+    for (var i = 0; i < selected.length; i++) {
+      if (selected[i] !== index) {
+        newList.push(selected[i]);
+      }
     }
-    html += "</tr>";
+    selected = newList;
+    card.classList.remove("selected");  // remove the highlight
   }
-  html += "</tbody></table>";
 
-  tableBox.innerHTML = html;
+  updateTable();
 }
-
-
-function showMessage(text, isWarning) {
-  message.textContent = text;
-  message.classList.toggle("warn", isWarning);
-}
-
-
-// 5. Clear button: untick everything
-clearBtn.addEventListener("click", function () {
-  const boxes = document.querySelectorAll(".compare-box");
-  for (let i = 0; i < boxes.length; i++) {
-    boxes[i].checked = false;
-  }
-  const picked = document.querySelectorAll(".card.picked");
-  for (let i = 0; i < picked.length; i++) {
-    picked[i].classList.remove("picked");
-  }
-  selectedIds = [];
-  buildTable();
-});
-
-
-showCars();
