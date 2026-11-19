@@ -4,32 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Car Showroom</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans for headings, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="top">
-    <h1>Car Showroom</h1>
-    <p>Pick any 2 or 3 cars with the Compare box and see them side by side below.</p>
-    <a href="#compareSection" class="jump">Go to comparison</a>
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="#home" class="brand">
+      <svg viewBox="0 0 300 140" width="34" height="16" aria-hidden="true">
+        <path d="M30 98 L38 78 Q42 70 54 68 L100 64 L122 40 Q127 35 136 35 L186 35 Q196 35 202 42 L224 66 L252 72 Q266 75 268 88 L270 98 Z" fill="#a78bfa"/>
+        <circle cx="78" cy="100" r="19" fill="#5eead4"/><circle cx="226" cy="100" r="19" fill="#5eead4"/>
+      </svg>
+      Car Showroom
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#cars">Cars</a></li>
+      <li><a href="#compareSection">Compare</a></li>
+    </ul>
+  </nav>
+
+  <!-- Intro section -->
+  <header class="hero" id="home">
+    <div class="hero-text">
+      <h1>Find the right car. Compare it side by side.</h1>
+      <p>Browse six popular models, check their specs, and pick up to three cars to see them together in one table.</p>
+      <div class="hero-buttons">
+        <a href="#cars" class="btn btn-main">Browse cars</a>
+        <a href="#compareSection" class="btn btn-outline">Compare cars</a>
+      </div>
+    </div>
+    <img class="hero-img" src="image/hero.svg" alt="Illustration of a car on the road">
   </header>
 
+  <div class="road"></div>
+
+  <!-- About section -->
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>About this showroom</h2>
+      <p>Car Showroom is our Semester 1 web development project (Group 15, Project 43). It shows six popular cars with their key specifications and lets you compare them in a single table.</p>
+      <p>Made by Aman Babu, Ashish Gupta and Aryan using only HTML, CSS and basic JavaScript.</p>
+    </div>
+    <div class="about-steps">
+      <div class="step"><h3>Browse</h3><p>See the picture, price and specs of every car.</p></div>
+      <div class="step"><h3>Select</h3><p>Tick the Compare box on 2 or 3 cars.</p></div>
+      <div class="step"><h3>Compare</h3><p>Read them in one table, then clear and try again.</p></div>
+    </div>
+  </section>
+
   <main>
-    <!-- the car cards are added here by script.js -->
-    <section id="carGrid" class="grid"></section>
+    <div class="section-head" id="cars">
+      <h2>Our cars</h2>
+      <p>Tick Compare on the cars you like.</p>
+    </div>
 
-    <section id="compareSection" class="compare">
-      <h2>Compare cars</h2>
-      <p id="message">Select at least 2 cars to compare.</p>
-      <div id="tableBox"></div>
-      <button id="clearBtn" type="button">Clear selection</button>
-    </section>
-  </main>
+    <!-- 6 car cards -->
+    <section class="grid">
 
-  <footer>
-    <p>Group 15 | Project 43 | Specs are approximate and for practice only.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+      <article class="card" id="card0">
+        <div class="card-img">
+          <img src="https://stimg.cardekho.com/images/cms/carnewsimages/editorimages/654a2b4a40316.png" alt="Maruti Suzuki Swift">
+          <span class="tag">Hatchback</span>
+        </div>
+        <div class="card-body">
+          <h3>Maruti Suzuki Swift</h3>
+          <table class="specs">
+            <tr><td>Price</td><td>Rs 6.5 lakh</td></tr>
