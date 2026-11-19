@@ -175,3 +175,40 @@ main {
   margin: 0 auto;
   padding: 56px 20px 64px;
 }
+/* ---------- Card grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--card-top), var(--card-bottom));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+}
+/* added by JavaScript when the car is ticked */
+.card.selected {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 1px var(--violet), 0 0 28px rgba(167, 139, 250, 0.35);
+}
+
+/* image area */
+.card-img {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.card-img img {
+  display: block;
+  width: 100%;
+  transition: transform 0.4s;
+}
+.card:hover .card-img img { transform: scale(1.05); }
