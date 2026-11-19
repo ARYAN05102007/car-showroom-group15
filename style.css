@@ -212,3 +212,56 @@ main {
   transition: transform 0.4s;
 }
 .card:hover .card-img img { transform: scale(1.05); }
+.tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  background: rgba(8, 9, 14, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.card-body { padding: 20px 22px 22px; }
+.card h3 {
+  margin: 0 0 14px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* specs table */
+.specs { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.specs td { padding: 8px 0; border-bottom: 1px solid rgba(42, 49, 80, 0.7); }
+.specs tr:last-child td { border-bottom: none; }
+.specs td:first-child { color: var(--muted); }
+.specs td:last-child { text-align: right; font-weight: 500; }
+.specs tr:first-child td:last-child { color: var(--mint); font-weight: 600; }
+
+/* compare checkbox, styled like a button */
+.compare-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 11px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+}
+.compare-label:hover { border-color: var(--violet); }
+.compare-label input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--violet);
+}
+.card.selected .compare-label {
+  background: rgba(167, 139, 250, 0.15);
+  border-color: var(--violet);
+}
