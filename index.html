@@ -158,3 +158,85 @@
       </article>
 
       <article class="card" id="card4">
+        <div class="card-img">
+          <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Honda/City/13532/1780294607751/exterior-image-164.jpg" alt="Honda City">
+          <span class="tag">Sedan</span>
+        </div>
+        <div class="card-body">
+          <h3>Honda City</h3>
+          <table class="specs">
+            <tr><td>Price</td><td>Rs 12 lakh</td></tr>
+            <tr><td>Engine</td><td>1498 cc petrol</td></tr>
+            <tr><td>Power</td><td>119 bhp</td></tr>
+            <tr><td>Mileage</td><td>18 kmpl</td></tr>
+            <tr><td>Seats</td><td>5</td></tr>
+            <tr><td>Gearbox</td><td>Manual / CVT</td></tr>
+          </table>
+          <label class="compare-label" for="box4">
+            <input type="checkbox" class="compare-box" id="box4" value="4">
+            Compare
+          </label>
+        </div>
+      </article>
+
+      <article class="card" id="card5">
+        <div class="card-img">
+          <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Fortuner/10904/1755846017683/front-left-side-47.jpg" alt="Toyota Fortuner">
+          <span class="tag">Large SUV</span>
+        </div>
+        <div class="card-body">
+          <h3>Toyota Fortuner</h3>
+          <table class="specs">
+            <tr><td>Price</td><td>Rs 33 lakh</td></tr>
+            <tr><td>Engine</td><td>2755 cc diesel</td></tr>
+            <tr><td>Power</td><td>201 bhp</td></tr>
+            <tr><td>Mileage</td><td>14 kmpl</td></tr>
+            <tr><td>Seats</td><td>7</td></tr>
+            <tr><td>Gearbox</td><td>Manual / Auto</td></tr>
+          </table>
+          <label class="compare-label" for="box5">
+            <input type="checkbox" class="compare-box" id="box5" value="5">
+            Compare
+          </label>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Comparison section: the table is ready here, script.js only fills in the text -->
+    <section id="compareSection" class="compare">
+      <h2>Compare cars</h2>
+      <p id="message">Select at least 2 cars to compare.</p>
+
+      <div class="table-wrap">
+        <table id="compareTable">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th class="col0"></th>
+              <th class="col1"></th>
+              <th class="col2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Price</td><td class="col0"></td><td class="col1"></td><td class="col2"></td></tr>
+            <tr><td>Engine</td><td class="col0"></td><td class="col1"></td><td class="col2"></td></tr>
+            <tr><td>Power</td><td class="col0"></td><td class="col1"></td><td class="col2"></td></tr>
+            <tr><td>Mileage</td><td class="col0"></td><td class="col1"></td><td class="col2"></td></tr>
+            <tr><td>Seats</td><td class="col0"></td><td class="col1"></td><td class="col2"></td></tr>
+            <tr><td>Gearbox</td><td class="col0"></td><td class="col1"></td><td class="col2"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button id="clearBtn" type="button">Clear selection</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Group 15 | Project 43 | Specs are approximate and for practice only.</p>
+  </footer>
+
+  <script src="X3.js"></script>
+</body>
+</html>
