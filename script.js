@@ -83,3 +83,30 @@ function updateTable() {
     }
   }
 }
+
+// Runs when the Clear button is clicked
+function clearAll() {
+  // Untick every checkbox
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].checked = false;
+  }
+
+  // Remove the highlight from every card
+  var cards = document.querySelectorAll(".card");
+  for (var j = 0; j < cards.length; j++) {
+    cards[j].classList.remove("selected");
+  }
+
+  selected = [];
+  updateTable();
+}
+
+
+// Connect the events: each checkbox calls handleChange, the button calls clearAll
+for (var i = 0; i < boxes.length; i++) {
+  boxes[i].addEventListener("change", handleChange);
+}
+clearBtn.addEventListener("click", clearAll);
+
+// Start with the table hidden
+updateTable();
