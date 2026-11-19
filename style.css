@@ -317,3 +317,28 @@ main {
   transition: background 0.25s, color 0.25s;
 }
 #clearBtn:hover { background: var(--mint); color: var(--page); }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 26px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  background: linear-gradient(180deg, var(--header-bottom), var(--page));
+  border-top: 1px solid var(--line);
+}
+footer p { margin: 0; }
+
+/* keyboard focus + small screens */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+}
+@media (max-width: 800px) {
+  .hero, .about { flex-direction: column; }
+  .hero h1 { font-size: 2.2rem; }
+}
+@media (max-width: 600px) {
+  .navbar { padding: 12px 16px; }
+  .compare { padding: 20px; }
+}
