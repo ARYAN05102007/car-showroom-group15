@@ -49,3 +49,37 @@ function handleChange(event) {
 
   updateTable();
 }
+
+
+// Fills the comparison table using the selected list
+function updateTable() {
+  message.className = "";               // remove the warning colour
+
+  // Fewer than 2 cars: hide the table and show a hint
+  if (selected.length < 2) {
+    table.style.display = "none";
+    message.textContent = "Select at least 2 cars to compare.";
+    return;
+  }
+
+  message.textContent = "Comparing " + selected.length + " cars.";
+  table.style.display = "table";
+
+  // The table has 3 columns for cars: col0, col1, col2
+  for (var col = 0; col < 3; col++) {
+    var cells = document.querySelectorAll(".col" + col);   // 7 cells: 1 header + 6 specs
+
+    for (var row = 0; row < cells.length; row++) {
+      if (col < selected.length) {
+        // This column has a car: look it up in the cars array and show it
+        var carNumber = selected[col];
+        cells[row].textContent = cars[carNumber][row];
+        cells[row].style.display = "table-cell";
+      } else {
+        // No car for this column: empty it and hide it
+        cells[row].textContent = "";
+        cells[row].style.display = "none";
+      }
+    }
+  }
+}
