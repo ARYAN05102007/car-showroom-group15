@@ -84,6 +84,7 @@ function updateTable() {
   }
 }
 
+
 // Runs when the Clear button is clicked
 function clearAll() {
   // Untick every checkbox
